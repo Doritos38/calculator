@@ -15,9 +15,9 @@ public class Calculator {
             int secondNum = sc.nextInt();
             sc.nextLine();
             System.out.println("사칙연산 부호를 입력하세요");
-            String sign = sc.nextLine();
+            String operator  = sc.nextLine();
             int result;
-            switch (sign){
+            switch (operator){
                 case "+" :
                     result = cal.plus(firstNum, secondNum);
                     System.out.println(firstNum+" + "+secondNum+" = "+result);
@@ -31,8 +31,13 @@ public class Calculator {
                         System.out.println("0으로는 나눌 수 없습니다.");
                         break;
                     }
-                    result = cal.division(firstNum, secondNum);
-                    System.out.println(firstNum+" / "+secondNum+" = "+result);
+                    double resultD = cal.division(firstNum, secondNum);
+                    if(resultD%1==0.0){
+                        result = (int) resultD;
+                        System.out.println(firstNum+" / "+secondNum+" = "+result);
+                        break;
+                    }
+                    System.out.println(firstNum+" / "+secondNum+" = "+resultD);
                     break;
                 case "*" :
                     result = cal.multiplication(firstNum, secondNum);
@@ -48,12 +53,6 @@ public class Calculator {
                 break;
             }
         }
-
-
-
-
-
-        System.out.println("Hello, Calculator!");
     }
 
     public int plus(int firstNum, int secondNum){
@@ -66,8 +65,13 @@ public class Calculator {
         return result;
     }
 
-    public int division(int firstNum, int secondNum){
-        int result = firstNum/secondNum;
+    public double division(int firstNum, int secondNum){
+        double result;
+        if (firstNum%secondNum == 0) {
+            result = (double)firstNum/secondNum;
+        }else {
+            result = (double)firstNum/secondNum;
+        }
         return result;
     }
 
