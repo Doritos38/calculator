@@ -9,8 +9,8 @@ public class App {
         Scanner sc = new Scanner(System.in);
         ArithmeticCalculator cal = new ArithmeticCalculator();
 
-        Loop : while(true) {
-            System.out.println(" 계산 | 기록 | 기록삭제 | 종료(exit)");
+        Loop : while(true) {    //계산기 반복 시작
+            System.out.println(" 계산 | 기록 | 기록삭제 | 종료(exit)");   // 원하는 항목 선택
             String choice = sc.nextLine();
             switch (choice){
                 case "계산" :
@@ -23,9 +23,9 @@ public class App {
                     Double secondNum = sc.nextDouble();
                     sc.nextLine();
 
-                    double result = cal.caculate(firstNum,secondNum,operator);
+                    double result = cal.caculate(firstNum,secondNum,operator);  // 연산 처리
 
-                    if (Math.abs(result % 1) < 0.0001) {
+                    if (Math.abs(result % 1) < 0.0001) {    //결과값이 정수일시 정수로 표시
                         System.out.println(firstNum+" "+operator+" "+secondNum+" = "+(int)result);
                     } else {
                         System.out.println(firstNum+" "+operator+" "+secondNum+" = "+result);
@@ -54,7 +54,8 @@ public class App {
                     break;
 
                 case "exit" :
-                    break Loop;
+                    System.out.println("계산기 프로그램이 종료됩니다.");
+                    break Loop; // 반복 끝내기
 
                 default :
                     System.out.println("잘못 입력하셨습니다. 보기 중 하나를 골라주세요");

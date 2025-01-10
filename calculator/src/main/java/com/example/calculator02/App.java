@@ -23,9 +23,9 @@ public class App {
                     int secondNum = sc.nextInt();
                     sc.nextLine();
 
-                    double result = cal.caculate(firstNum,secondNum,operator);
+                    double result = cal.caculate(firstNum,secondNum,operator);  // 연산 메서드
 
-                    if (result%1==0.0) {
+                    if (result%1==0.0) {    // 결과값 저장, 정수는 정수로 표시
                         cal.addResult(result);
                         result = (int) result;
                         System.out.println(firstNum+" "+operator+" "+secondNum+" = "+result);
@@ -34,7 +34,7 @@ public class App {
                         System.out.println(firstNum+" "+operator+" "+secondNum+" = "+result);
                     }
                     break;
-                case "기록" :
+                case "기록" : // 계산기록 불러오기
                     List<Double> record = cal.getResultRecord();
                     int count = 0;
                     for(double rec : record){
@@ -42,7 +42,7 @@ public class App {
                         System.out.println("계산기록 : "+count+". "+rec);
                     }
                     break;
-                case "기록삭제" :
+                case "기록삭제" :   // 오래된 계산기록 삭제
                     System.out.println("가장 오래된 기록 하나를 삭제하시겠습니까");
                     System.out.println("    예 / 아니요    ");
                     String answer = sc.nextLine();
@@ -50,7 +50,7 @@ public class App {
                         cal.removeResult();
                     }
                     break;
-                case "exit" :
+                case "exit" :   // 계산기 종료
                     break Loop;
             }
         }

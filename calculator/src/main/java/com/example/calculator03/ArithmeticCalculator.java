@@ -7,12 +7,12 @@ public class ArithmeticCalculator {
 
     private List<Double> resultRecord = new ArrayList<>();
 
-    public <T extends Number> double caculate(T firstNum, T secondNum, String operator){
+    public <T extends Number> double caculate(T firstNum, T secondNum, String operator){    // 계산 메서드
         double result = 0;
         switch (operator){
             case "+" :
                 result = OperatorType.ADD.operator(firstNum, secondNum);
-                resultRecord.add(result);
+                resultRecord.add(result);   // 결과값을 저장
                 break;
             case "-" :
                 result = OperatorType.SUBTRACTION.operator(firstNum,secondNum);
@@ -36,7 +36,7 @@ public class ArithmeticCalculator {
         return result;
     }
 
-    public <T extends Number> List<Double> getSearchRecord(T searchNum){
+    public <T extends Number> List<Double> getSearchRecord(T searchNum){    // 검색한 값 이상의 결과값을 출력
         List<Double> searchRecord = new ArrayList<>();
         searchRecord = this.resultRecord.stream()
                                         .filter(n -> n > searchNum.doubleValue())
@@ -44,7 +44,7 @@ public class ArithmeticCalculator {
         return searchRecord;
     }
 
-    public void removeResult(){
+    public void removeResult(){ // 가장 오래된 결과기록 삭제
         resultRecord.remove(0);
     }
 }
